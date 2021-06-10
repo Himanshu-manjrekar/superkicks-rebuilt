@@ -1,0 +1,109 @@
+1) Brand Logo :- https://superkicks.in/wp-content/uploads/2021/01/cropped-superkicks-logo-updated.jpg.webp
+2) Categorie :- a) Men :- https://superkicks.in/wp-content/uploads/2021/06/tile-4-850x1164.jpg
+				b) Women :- https://superkicks.in/wp-content/uploads/2021/06/tile-2-850x1164.jpg
+				c) Apparel :- https://superkicks.in/wp-content/uploads/2021/06/tile-1-850x1164.jpg
+
+3) Stores :- a) Mumbai :- https://superkicks.in/wp-content/uploads/2021/06/MUMBAI-2.jpg
+			 b) Banglore :- https://superkicks.in/wp-content/uploads/2021/06/BENGALURU-1-1.jpg
+			 c) Delhi :-  https://superkicks.in/wp-content/uploads/2021/06/DELHI-2.jpg
+
+
+			 <Menu>
+			<li><a href="#">new arrivals</a></li>
+			<li>
+				<a href="#">Footwear</a>
+				<DropDown>
+				<li><a href="#">Men</a></li>
+				<li><a href="#">Women</a></li>
+				</DropDown>
+			</li>
+				
+				<li><a href="#">accessoire</a></li>
+				<li><a href="#">appareal</a></li>
+				<li><a href="#">heat</a></li>
+				<li><a href="#">blog</a></li>
+				<li><a href="#">sale</a></li>
+				<li><a href="#">brands</a></li>
+
+			</Menu>
+			<RightMenu>
+				<a href=""><BsPerson/></a>
+				<a href=""><BiSearchAlt2/></a>
+				<Bag href=""><BsBag/><Badge>3</Badge></Bag>
+			</RightMenu>
+			
+
+			const Menu = styled.ul`
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	li {
+		position: relative;
+		
+	}
+	li a {
+		color: white;
+		text-decoration:none;
+		padding: 0 40px 0 0;
+		
+	}
+`
+const DropDown =styled.ul`
+	display: flex;
+	position: absolute;
+
+	li {
+		width:100%;
+		flex-wrap: wrap;
+	}
+
+`
+
+const RightMenu = styled.div`
+display:flex;
+align-items:center;
+justify-content:center;
+margin-left:50px;
+	a {
+		color: white;
+		text-decoration:none;
+		display:flex;
+		border-right: 1px solid #585454;
+		padding: 8px 10px 8px 0;
+		margin-right: 10px;
+		line-height: inherit;
+		font-size: 18px;
+	}
+	& a:last-child{
+		border-right: none;
+		
+	}
+	
+`
+
+const Bag = styled.a `
+	text-decoration:none;
+`
+
+const Badge = styled.span `
+	position: absolute;
+    top: 20px;
+    right: 56px;
+    height: 23px;
+    width: 20px;
+	border: 1px solid white;
+	background:white;
+    border-radius: 50%;
+    color: black;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	font-size:12px;
+	transition:0.2s;
+
+	&:hover {
+		border: 1.8spx solid white;
+		background: black;
+		color: white;
+	}
+`
