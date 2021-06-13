@@ -1,45 +1,46 @@
 import React from 'react'
 import styled from 'styled-components';
 import { RiArrowDropRightLine } from 'react-icons/ri';
+import { Link } from 'react-router-dom';
 
 const NavMenu = () => {
 	return (
 		<>
 			<Menu>
-			<li><a href="#">new arrivals</a></li>
+			<li><Link to="/Blog">new arrivals</Link></li>
 				<DropDownMain>
-				<a href="#">Footwear</a>
+				<a>Footwear</a>
 				<DropDownMenu>
 					<DropDownMenuLink>
-						<a href="#">Men</a>
+						<a>Men</a>
 						<Arrowwrap><RiArrowDropRightLine/></Arrowwrap>
 						<DropDownSubMenu>
-							<DropDownMenuLink><a href="#">Sneakers</a></DropDownMenuLink>
-							<DropDownMenuLink><a href="#">Slides & Sandals</a></DropDownMenuLink>
-							<DropDownMenuLink><a href="#">Classics</a></DropDownMenuLink>
-							<DropDownMenuLink><a href="#">Basketball</a></DropDownMenuLink>
+							<DropDownMenuLink><Link to="/Blog">Sneakers</Link></DropDownMenuLink>
+							<DropDownMenuLink><Link to="/Blog">Slides & Sandals</Link></DropDownMenuLink>
+							<DropDownMenuLink><Link to="/Blog">Classics</Link></DropDownMenuLink>
+							<DropDownMenuLink><Link to="/Blog">Basketball</Link></DropDownMenuLink>
 						</DropDownSubMenu>	
 					</DropDownMenuLink>
 					
 					<DropDownMenuLink>
-						<a href="#">Women</a>
+						<a>Women</a>
 						<Arrowwrap><RiArrowDropRightLine/></Arrowwrap>
 						<DropDownSubMenu>
-							<DropDownMenuLink><a href="#">Sneakers</a></DropDownMenuLink>
-							<DropDownMenuLink><a href="#">Slides & Sandals</a></DropDownMenuLink>
-							<DropDownMenuLink><a href="#">Classics</a></DropDownMenuLink>
-							<DropDownMenuLink><a href="#">Basketball</a></DropDownMenuLink>
+							<DropDownMenuLink><Link to="/Blog">Sneakers</Link></DropDownMenuLink>
+							<DropDownMenuLink><Link to="/Blog">Slides & Sandals</Link></DropDownMenuLink>
+							<DropDownMenuLink><Link to="/Blog">Classics</Link></DropDownMenuLink>
+							<DropDownMenuLink><Link to="/Blog">Basketball</Link></DropDownMenuLink>
 						</DropDownSubMenu>	
 					</DropDownMenuLink>
 				</DropDownMenu>
 				</DropDownMain>
 				
-			<li><a>apparel</a></li>
-			<li><a>accessories</a></li>
-			<li><a>heat</a></li>
-			<li><a>blog</a></li>
-			<li><a>sale</a></li>
-			<li><a>brands</a></li>
+			<li><Link to="/Blog">apparel</Link></li>
+			<li><Link to="/Blog">accessories</Link></li>
+			<li><Link to="/Blog">heat</Link></li>
+			<li><Link to="/Blog">blog</Link></li>
+			<li><Link to="/Blog">sale</Link></li>
+			<li><Link to="/Blog">brands</Link></li>
 		</Menu>
 		</>
 	)
@@ -114,6 +115,7 @@ justify-content:space-between;
 `
 
 const DropDownMenu =styled.ul`
+	z-index:10000;
 	top:4.375rem;
 	left:0;
 	padding:1rem !important;

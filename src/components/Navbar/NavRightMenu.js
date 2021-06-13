@@ -57,7 +57,8 @@ background-color: black;
 
 const Bag = styled.a `
 	position: relative;	
-	text-decoration:none;	
+	text-decoration:none;
+	cursor: pointer;	
 `
 
 const Badge = styled.span `

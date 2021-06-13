@@ -4,25 +4,26 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import '../node_modules/bootstrap/dist/js/bootstrap.bundle';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
-import Blog from "./components/blog/Blog"
-import Cart from "./components/cart/Cart"
-import IndexLogin from './components/Login/IndexLogin';
+import Blog from "./components/blog/Blog";
+import Cart from "./components/cart/Cart";
+import Home from './pages/Home';
+import Heat from './pages/Heat';
+import MyAccount from './pages/MyAccount';
 
 function App() {
   return (
     <div className="App">
-      <Navbar/>
-        {/* <Router>
+        <Router>
+          <Navbar/>
           <Switch>
-            <Route path="/" exact component={Navbar} />
-            <Route path="/heat" exact component={} />
+            <Route path="/" exact component={Home} />
+            <Route path="/heat" exact component={Heat} />
             <Route path="/blog" exact component={Blog} />
             <Route path="/cart" exact component={Cart} />
-            <Route path="/my-account" exact component={IndexLogin} />
+            <Route path="/myaccount" exact component={MyAccount} />
             <Route>404 not not found</Route>
-
           </Switch>
-        </Router> */}
+        </Router>
     </div>
   );
 }
