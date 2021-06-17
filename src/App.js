@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Blog from "./components/blog/Blog";
 import Cart from "./components/cart/Cart";
+import Footer from './components/Footer/Footer';
 import Home from './pages/Home';
 import Heat from './pages/Heat';
 import MyAccount from './pages/MyAccount';
@@ -23,6 +24,7 @@ function App() {
             <Route path="/myaccount" exact component={MyAccount} />
             <Route>404 not not found</Route>
           </Switch>
+          <Footer />
         </Router>
     </div>
   );

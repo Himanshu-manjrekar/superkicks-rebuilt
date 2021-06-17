@@ -46,8 +46,6 @@ const Carousel = () => {
 							<Image src= "https://superkicks.in/wp-content/uploads/2021/05/Adidas-Love-unites-web.jpg"/>
 						</Link>
 					</div>
-					
-					
 				</StyledSlider>
 			</Container>
 			
@@ -59,7 +57,10 @@ const Carousel = () => {
 
 
 const Container = styled.div`
-	
+	margin-top: 4.5rem;
+	@media(max-width:1024px){
+		margin-top:3rem;
+	} 
 `
 const Image =styled.img`
 	height: 100%;

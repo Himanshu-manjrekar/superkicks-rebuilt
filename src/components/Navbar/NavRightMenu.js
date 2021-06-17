@@ -3,14 +3,15 @@ import styled from 'styled-components';
 import { BiSearchAlt2 } from 'react-icons/bi';
 import { BsPerson, BsBag } from 'react-icons/bs';
 import { RiCloseLine } from 'react-icons/ri';
+import { Link } from 'react-router-dom';
 
 const NavRightMenu = () => {
 	const [cartStatus, setCartStatus] = useState(false)
 	return (
 		<>
 			<RightMenu>
-				<a href=""><BsPerson/></a>
-				<a href=""><BiSearchAlt2/></a>
+				<Link to="#"><BsPerson/></Link>
+				<Link to="#"><BiSearchAlt2/></Link>
 				<Bag onClick={() => setCartStatus(true) }><BsBag/><Badge>3</Badge></Bag>		
 		</RightMenu>
 		<CustomBag onClick={() => setCartStatus(true) }><BsBag/><CustomBadge>3</CustomBadge></CustomBag>

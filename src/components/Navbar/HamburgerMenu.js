@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { RiCloseLine, RiArrowDropDownLine, RiArrowDropUpLine } from 'react-icons/ri';
+import { Link } from 'react-router-dom';
 
 const HamburgerMenu = () => {
 	const [burgerStatus, setBurgerStatus] = useState(false)
@@ -15,58 +16,58 @@ const HamburgerMenu = () => {
 				<CloseWrapper>
 					<CustomClose onClick={() => setBurgerStatus(false) }/>
 				</CloseWrapper>
-				<li><a>New Arrivals</a></li>
-				<li><a onClick={() => setAccordian(!accordian)}>FootWear
-					{accordian ? <UpArrow/>: <DownArrow/>}</a>
+				<li><Link to="/">New Arrivals</Link></li>
+				<li><Link to="#" onClick={() => setAccordian(!accordian)}>FootWear
+					{accordian ? <UpArrow/>: <DownArrow/>}</Link>
 				{ accordian && 
 					<DropDown>
-						<li><a onClick={() => setDropAccord1(!dropAccord1)}>Men
+						<li><Link to="#" onClick={() => setDropAccord1(!dropAccord1)}>Men
 						{dropAccord1 ? <UpArrow/> : <DownArrow/>}
-						 </a>
+						 </Link>
 						 {
 							 dropAccord1 &&
 							 <ul>
-							 	<li><a>Sneakers</a></li>
-								<li><a>Slides & Sandals</a></li>
-								<li><a>Classics</a></li>
-								<li><a>Basketball</a></li>
+							 	<li><Link to="/">Sneakers</Link></li>
+								<li><Link to="/">Slides & Sandals</Link></li>
+								<li><Link to="/">Classics</Link></li>
+								<li><Link to="/">Basketball</Link></li>
 						 	</ul>
 						 }
 						 	
 						 </li>
-						<li><a onClick={() => setDropAccord2(!dropAccord2)}>Women 
+						<li><Link  to="#" onClick={() => setDropAccord2(!dropAccord2)}>Women 
 						{dropAccord2 ? <UpArrow/> : <DownArrow/>}
-						</a>
+						</Link>
 						{
 							dropAccord2 &&
 							<ul>
-								<li><a>Sneakers</a></li>
-								<li><a>Slides & Sandals</a></li>
-								<li><a>Classics</a></li>
-								<li><a>Basketball</a></li>
+								<li><Link to="/">Sneakers</Link></li>
+								<li><Link to="/">Slides & Sandals</Link></li>
+								<li><Link to="/">Classics</Link></li>
+								<li><Link to="/">Basketball</Link></li>
 							</ul>
 						}
 						</li>
 					</DropDown>	
 				}
 				</li>
-				<li><a>apparel</a></li>
-				<li><a>accessories</a></li>
-				<li><a>brands</a></li>
-				<li><a>heat</a></li>
-				<li><a>Blog</a></li>
-				<li><a>sale</a></li>
+				<li><Link to="/">apparel</Link></li>
+				<li><Link to="/">accessories</Link></li>
+				<li><Link to="/">brands</Link></li>
+				<li><Link to="/">heat</Link></li>
+				<li><Link to="/">Blog</Link></li>
+				<li><Link to="/">sale</Link></li>
 				<Importantlinks>
 					<h1>Important Links</h1>
-					<li><a>My account</a></li>
-					<li><a>Track Your Order</a></li>
-					<li><a>refunds/cancellation</a></li>
-					<li><a>terms and conditions</a></li>
-					<li><a>faq</a></li>
-					<li><a>privacy policy</a></li>
+					<li><Link to="/">My account</Link></li>
+					<li><Link to="/">Track Your Order</Link></li>
+					<li><Link to="/">refunds/cancellation</Link></li>
+					<li><Link to="/">terms and conditions</Link></li>
+					<li><Link to="/">faq</Link></li>
+					<li><Link to="/">privacy policy</Link></li>
 					<h1>Social</h1>
-					<li><a>facebook</a></li>
-					<li><a>Instagram</a></li>	
+					<li><Link to="/">facebook</Link></li>
+					<li><Link to="/">Instagram</Link></li>	
 				</Importantlinks>
 			</BurgerNav>
 		</>
@@ -139,7 +140,9 @@ const BurgerNav = styled.div`
 			font-size: 1rem;
 			cursor: pointer;
 			display: flex;
-			justify-content: space-between;	
+			justify-content: space-between;
+			text-decoration: none;
+			color: #222;	
 		}
 	}
 `

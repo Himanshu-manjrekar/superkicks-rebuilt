@@ -9,10 +9,10 @@ const NavMenu = () => {
 			<Menu>
 			<li><Link to="/Blog">new arrivals</Link></li>
 				<DropDownMain>
-				<a>Footwear</a>
+				<Link to="#">Footwear</Link>
 				<DropDownMenu>
 					<DropDownMenuLink>
-						<a>Men</a>
+						<Link to="#">Men</Link>
 						<Arrowwrap><RiArrowDropRightLine/></Arrowwrap>
 						<DropDownSubMenu>
 							<DropDownMenuLink><Link to="/Blog">Sneakers</Link></DropDownMenuLink>
@@ -23,7 +23,7 @@ const NavMenu = () => {
 					</DropDownMenuLink>
 					
 					<DropDownMenuLink>
-						<a>Women</a>
+						<Link to="#">Women</Link>
 						<Arrowwrap><RiArrowDropRightLine/></Arrowwrap>
 						<DropDownSubMenu>
 							<DropDownMenuLink><Link to="/Blog">Sneakers</Link></DropDownMenuLink>

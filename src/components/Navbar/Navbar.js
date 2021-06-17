@@ -24,11 +24,14 @@ const Navbar = () => {
 )
 }
 
-const NavBar = styled.div`
+const NavBar = styled.nav`
+	position: fixed;
+	top:0;
+	width: 100%;
 	background-color: black;
 	display: flex;
-	width: 100%;
 	justify-content:space-between;
+	z-index:1000000;
 
 `
 
