@@ -30,14 +30,26 @@ const CardWrapper =styled.div`
 `
 const Card = styled.div`
 	width: 18.75rem;
-	margin: 1.875rem;
+	margin: 1rem ;
 	background-color: #fff;
+	@media(max-width: 768px) {
+		margin:1rem 0 1rem 0;
+	}
+	@media(max-width:575px) {
+		width: 10rem;
+		
+	}
 `
 const ProductImage = styled.img`
 	width: 100%;
   	height: 18.75rem;
   	object-fit: cover;
-	
+	@media(max-width: 1024px){
+		height: 17rem;
+	}
+	@media(max-width:768px) {
+		height: 13rem;
+	}
 `
 const ProductDetails = styled.div`
 	margin-top: 1rem;

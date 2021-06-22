@@ -10,6 +10,8 @@ import Footer from './components/Footer/Footer';
 import Home from './pages/Home';
 import Heat from './pages/Heat';
 import MyAccount from './pages/MyAccount';
+import ProductCategory from './components/Products/ProductCategory';
+import StoreInfo from './components/Container/StoreInfo';
 
 function App() {
   return (
@@ -22,8 +24,10 @@ function App() {
             <Route path="/blog" exact component={Blog} />
             <Route path="/cart" exact component={Cart} />
             <Route path="/myaccount" exact component={MyAccount} />
+            <Route path="/Productcategory" exact component={ProductCategory}/>
             <Route>404 not not found</Route>
           </Switch>
+          <StoreInfo />
           <Footer />
         </Router>
     </div>

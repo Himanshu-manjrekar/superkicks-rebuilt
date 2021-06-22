@@ -5,7 +5,7 @@ const Images = ({src, id, title}) => {
 	return (
 		<>
 			<ImageWrapper
-				 src={src} alt={title} key={id} 
+				src={src} alt={title} key={id} 
 			/>
 		</>
 	)	

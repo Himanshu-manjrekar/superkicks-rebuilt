@@ -6,7 +6,8 @@ import { VscLock } from "react-icons/vsc"
 const StoreInfo = () => {
 	return (
 		<>
-		<div className="container">
+		<StoreInfoWrap>
+		<div className="container" >
 			<div className="row">
 				<div className="col-lg-6 col-md-6">
 					<Wrapper>
@@ -28,9 +29,16 @@ const StoreInfo = () => {
 				</div>
 			</div>
 		</div>	
+		</StoreInfoWrap>
 		</>
 	)
 }
+const StoreInfoWrap = styled.div`
+	border-top: 0.5px solid #eee;
+	margin-top: 1rem;
+	padding-top: 2.5rem;
+`
+
 const Wrapper = styled.div`
 	display: flex;
 	align-items:center;

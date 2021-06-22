@@ -7,7 +7,7 @@ const NavMenu = () => {
 	return (
 		<>
 			<Menu>
-			<li><Link to="/Blog">new arrivals</Link></li>
+			<li><Link to="/Productcategory">new arrivals</Link></li>
 				<DropDownMain>
 				<Link to="#">Footwear</Link>
 				<DropDownMenu>
