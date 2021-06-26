@@ -18,9 +18,7 @@ const Home = () => {
 				header="Store"
 				display="Store"
 			/>
-			<Container 
-				display="Storeinfo"
-			/>
+			
 		</div>
 	)
 }

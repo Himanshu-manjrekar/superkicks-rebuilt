@@ -61,5 +61,6 @@ const StoreImages = styled.img`
 	 @media(max-width: 1024px) {
 		 height: 19rem;
 	 }
+	 
 `
 export default Store

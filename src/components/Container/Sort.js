@@ -24,6 +24,9 @@ const Select = styled.select`
 		padding: .375rem 2.25rem .375rem 0rem;
 		font-size: 12px;
 		margin-left: 1rem;
+		@media(max-width: 575px) {
+			width: 100% !important;
+		}
 	}
 	&:focus {
 		outline: none !important;

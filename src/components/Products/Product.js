@@ -32,13 +32,10 @@ const Card = styled.div`
 	width: 18.75rem;
 	margin: 1rem ;
 	background-color: #fff;
-	@media(max-width: 768px) {
-		margin:1rem 0 1rem 0;
+	@media(min-width: 1024px) {
+		margin: 1rem;	
 	}
-	@media(max-width:575px) {
-		width: 10rem;
-		
-	}
+	
 `
 const ProductImage = styled.img`
 	width: 100%;
@@ -47,8 +44,12 @@ const ProductImage = styled.img`
 	@media(max-width: 1024px){
 		height: 17rem;
 	}
-	@media(max-width:768px) {
+	@media(min-width:768px) {
 		height: 13rem;
+	}
+	@media(max-width:575px) {
+		height: 15rem;
+
 	}
 `
 const ProductDetails = styled.div`

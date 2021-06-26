@@ -147,7 +147,7 @@ const StyledSlider = styled(Slider)`
 	}
 	.slick-prev {
 		position: absolute;
-  		top: 50%;
+  		top: 35%;
   		z-index: 1;
 		left: 5%;
 		&::before {
@@ -160,7 +160,7 @@ const StyledSlider = styled(Slider)`
 
 	.slick-next {
 		position: absolute;
-  		top: 50%;
+  		top: 35%;
   		z-index: 1;
 		right: 5%;
 		&::before {

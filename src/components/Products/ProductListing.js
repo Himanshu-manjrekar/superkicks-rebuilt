@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import Sort from '../Container/Sort'
-import Product from './Product'
+import Product from './Product';
+import FilterIcon from '../Filter/FilterIcon';
+
 
 const ProductListing = () => {
 	const Arrival = [
@@ -74,14 +76,18 @@ const ProductListing = () => {
 	]
 	return (
 		<ListingWrapper>
-			<Header>New Arrivals</Header>
+			<HeaderWrapper>
+				<Header>New Arrivals</Header>
+				<FilterIcon></FilterIcon>
+			</HeaderWrapper>
+			
 			<Sort />
 			<Container>
 				<Row>
 					{
 						Arrival.map((val)=> {
 							return (
-								<div className=" " key={val.id}>
+								<div className="col-md-4 col-sm-6 col-xs-6 col-lg-4" key={val.id}>
 									
 									<Product 
 									src={val.img}
@@ -106,6 +112,10 @@ const Row = styled.div`
 	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
+	@media(max-width: 575px) {
+		align-items: center;
+		justify-content: center;
+	}
 `
 const ListingWrapper =styled.div`
 	width: 80%;
@@ -122,6 +132,29 @@ const Header = styled.h2`
     letter-spacing: -0.5px;
     color: #222;
 	margin-left: 1rem;
+
+	
+
+	@media(max-width: 768px) {
+		font-size: 30px;
+    	font-weight: 400;
+	}
+	@media(max-width: 540px) {
+		font-size: 25px;
+    	font-weight: 400;
+	}
+	@media(max-width: 320px) {
+		font-size: 18px;
+    	font-weight: 400;
+	}
+`
+
+const HeaderWrapper= styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 0.5rem;
+
 `
 
 
