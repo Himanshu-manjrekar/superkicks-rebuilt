@@ -1,79 +1,26 @@
-import React from 'react'
+import React,{ useEffect} from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components'
 import Sort from '../Container/Sort'
 import Product from './Product';
 import FilterIcon from '../Filter/FilterIcon';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+import { setProducts } from '../../redux/actions/productActions';
 
 
 const ProductListing = () => {
-	const Arrival = [
-		{
-			id:1,
-			brand:"Asics",
-			title:"VIVIENNE WESTWOOD GEL-KAYANO 27 LTX",
-			img:"https://superkicks.in/wp-content/uploads/2021/06/1201A115.001-1.jpg?x77133",
-			price: "19,999",	
-			gender:"Men",
-		},
-		{
-			id:2,
-			brand:"Nike",
-			title:"AIR FORCE 1 SHADOW W MAGIC EMBER	",
-			img:"https://superkicks.in/wp-content/uploads/2021/06/CI0919-110-1.jpg?x77133",
-			price: "8,995",	
-			gender:"Men",
-		},
-		{
-			id:3,
-			brand:"adidas originals",
-			title:"PHARRELL WILLIAMS CHANCLETAS HU SLIDES SEMI SOLAR PINK",
-			img:"https://superkicks.in/wp-content/uploads/2021/06/FV7289-1.jpg?x77133",
-			price: "7,999",	
-			gender:"Men",
-		},
-		{
-			id:4,
-			brand:"adidas originals",
-			title:"PHARRELL WILLIAMS CHANCLETAS HU SLIDES bright orange",
-			img:"https://superkicks.in/wp-content/uploads/2021/06/FV7261-1.jpg?x77133",
-			price: "7,999",	
-			gender:"Men",
-		},
-		{
-			id:5,
-			brand:"adidas originals",
-			title:"PHARRELL WILLIAMS CHANCLETAS HU SLIDES core black",
-			img:"https://superkicks.in/wp-content/uploads/2020/09/GX2483-1.jpg.webp",
-			price: "7,999",	
-			gender:"Men",
-		},
-		{
-			id:6,
-			brand:"adidas originals",
-			title:"PHARRELL WILLIAMS CHANCLETAS HU SLIDES bold gold",
-			img:"https://superkicks.in/wp-content/uploads/2020/09/yellowslides-1.jpg.webp",
-			price: "7,999",	
-			gender:"Men",
-		},
-		{
-			id:7,
-			brand:"Adidas",
-			title:"HU NMD ORANGE",
-			img:"https://superkicks.in/wp-content/uploads/2021/06/01-2.jpg?x77133",
-			price: "21,999",	
-			gender:"Men",
-		},
-		{
-			id:8,
-			brand:"Reebok",
-			title:"DANIELLE GUIZIO CLUB C 85",
-			img: "https://superkicks.in/wp-content/uploads/2021/06/GZ3035-1.jpg?x77133",
-			price: "9,999",	
-			gender:"Men",
-		},
-		
+	const arrivals = useSelector((state) => state.allProducts.products);
+	const dispatch = useDispatch();
 
-	]
+	const fetchArrivals = async() => {
+		const response = await axios.get('http://localhost:8080/Products')
+		.catch((err) =>{console.log('Err', err)});
+		dispatch(setProducts(response.data));
+	}
+	useEffect(() => {
+		fetchArrivals();
+	},[])
 	return (
 		<ListingWrapper>
 			<HeaderWrapper>
@@ -85,16 +32,18 @@ const ProductListing = () => {
 			<Container>
 				<Row>
 					{
-						Arrival.map((val)=> {
+						arrivals.map((val)=> {
 							return (
 								<div className="col-md-4 col-sm-6 col-xs-6 col-lg-4" key={val.id}>
-									
+									<Link style={{textDecoration:"none",color:"black"}} to={`/productdetails`}>
 									<Product 
 									src={val.img}
 									id={val.id}
 									brand={val.brand}
 									title={val.title}
 									price={val.price}/>
+									</Link>
+									
 								</div>
 							)
 						})

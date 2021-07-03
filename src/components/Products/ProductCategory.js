@@ -8,7 +8,7 @@ const ProductCategory = () => {
 		<>
 		<PageWrapper>
 			<ContainerFluid>
-				<BreadCrumb/>
+				<BreadCrumb item="New Arrivals"/>
 			</ContainerFluid>
 			<Container>
 				<ProductFilter />

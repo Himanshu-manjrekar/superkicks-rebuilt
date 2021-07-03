@@ -1,0 +1,2 @@
+1) ek aplyla "Changeproductimage" or similar state banvalyla lagel jo state 
+ jo state ProductImages ani MainImage hya components la share hoil   

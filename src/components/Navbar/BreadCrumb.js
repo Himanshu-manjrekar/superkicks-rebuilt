@@ -2,19 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const BreadCrumb = () => {
+const BreadCrumb = ({item}) => {
 	return (
 		<>
-		{/* <nav aria-label="breadcrumb">
- 				<ol className="breadcrumb">
-    				<li className="breadcrumb-item"><Link to="/">Home</Link></li>
-    				<li className="breadcrumb-item active" aria-current="page">Library</li>
-  				</ol>
-		</nav> */}
 		<Breadcrumb>
 			<BreadcrumbOl>
 				<Breadcrumbitem><Link to="/">Home</Link></Breadcrumbitem>
-				<BreadcrumbitemActive>New Arrivals</BreadcrumbitemActive>
+				<BreadcrumbitemActive>{item}</BreadcrumbitemActive>
 			</BreadcrumbOl>
 		</Breadcrumb>
 		</>

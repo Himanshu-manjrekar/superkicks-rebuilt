@@ -10,24 +10,24 @@ const NavRightMenu = () => {
 	const [cartStatus, setCartStatus] = useState(false)
 
 	const Cart = [
-		// {
-		// 	id:1,
-		// 	brand:"Asics",
-		// 	title:"VIVIENNE WESTWOOD GEL-KAYANO 27 LTX",
-		// 	img:"https://superkicks.in/wp-content/uploads/2021/06/1201A115.001-1.jpg?x77133",
-		// 	price: "19,999",	
-		// 	gender:"Men",
+		{
+			id:1,
+			brand:"Asics",
+			title:"VIVIENNE WESTWOOD GEL-KAYANO 27 LTX",
+			img:"https://superkicks.in/wp-content/uploads/2021/06/1201A115.001-1.jpg?x77133",
+			price: "19,999",	
+			gender:"Men",
 				
 			
-		// },
-		// {
-		// 	id:2,
-		// 	brand:"Nike",
-		// 	title:"AIR FORCE 1 SHADOW W MAGIC EMBER	",
-		// 	img:"https://superkicks.in/wp-content/uploads/2021/06/CI0919-110-1.jpg?x77133",
-		// 	price: "8,995",	
-		// 	gender:"Men",
-		// },
+		},
+		{
+			id:2,
+			brand:"Nike",
+			title:"AIR FORCE 1 SHADOW W MAGIC EMBER	",
+			img:"https://superkicks.in/wp-content/uploads/2021/06/CI0919-110-1.jpg?x77133",
+			price: "8,995",	
+			gender:"Men",
+		},
 		
 	];
 
@@ -37,7 +37,7 @@ const NavRightMenu = () => {
 	return (
 		<>
 			<RightMenu>
-				<Link to="#"><BsPerson/></Link>
+				<Link to="/myaccount"><BsPerson/></Link>
 				<Link to="#"><BiSearchAlt2/></Link>
 				<Bag onClick={() => setCartStatus(true) }><BsBag/><Badge>3</Badge></Bag>		
 		</RightMenu>
@@ -199,59 +199,9 @@ const ShoppingHeader = styled.h6`
 	color: #000;
 	font-weight: 600;
 `
-const CheckoutWrapper = styled.div`
-	padding: 20px;
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-	
 
 
-`
-const Subtotal = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	color: black;
-	font-size: 15px;
-	font-weight: 500;
-`
 
-const Checkout = styled.div`
-	width: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 0.5rem;
-	background: #353535;
-	color: White;
-	margin-top: 0.5rem;
-	margin-bottom: 0.5rem;
-	border: 1px solid #353535;
-	cursor: pointer;
-	&:hover{
-		background: black;
-		transition: all 0.2s ease-in-out;
-	}
-`
 
-const ViewCartbtn = styled(Checkout)`
-	background: #fff;
-	color: #353535;
-	&:hover {
-		background: #fff;
-		color: #353535;
-	} 
-`
 
-const Total = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: space-around;
-`
-const Rupee = styled.span`
-	color: black;
-	margin-right: 0.2rem;
-	font-weight: bold;
-`
 export default NavRightMenu

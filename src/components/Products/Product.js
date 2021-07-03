@@ -32,6 +32,7 @@ const Card = styled.div`
 	width: 18.75rem;
 	margin: 1rem ;
 	background-color: #fff;
+	cursor: pointer;
 	@media(min-width: 1024px) {
 		margin: 1rem;	
 	}
@@ -65,7 +66,7 @@ const ProductBrand = styled.h5`
 `
 const ProductTitle = styled.p`
 	font-size: 0.9rem;
-	font-weight: 800;
+	font-weight: 600;
 	line-height: 1.5rem;
 	text-transform: uppercase;	
 `

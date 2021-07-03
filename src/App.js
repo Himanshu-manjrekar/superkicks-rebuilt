@@ -12,6 +12,7 @@ import Heat from './pages/Heat';
 import MyAccount from './pages/MyAccount';
 import ProductCategory from './components/Products/ProductCategory';
 import StoreInfo from './components/Container/StoreInfo';
+import ProductDetails from './components/Products/ProductDetails';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/cart" exact component={Cart} />
             <Route path="/myaccount" exact component={MyAccount} />
             <Route path="/Productcategory" exact component={ProductCategory}/>
+            <Route path="/Productdetails" exact component={ProductDetails} />
             <Route>404 not not found</Route>
           </Switch>
           <StoreInfo />
