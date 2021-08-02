@@ -1,15 +1,17 @@
 import React from 'react'
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
+
 const ProductInfo = () => {
+	const products = useSelector((state)=> state.selectedProduct);
+	const {brand, price, title, details} = products;
 	return (
 		<>
-			<Brand>Converse</Brand>
-			<Title>RUN  STAR  HIKE  WHITE</Title>
-			<Cost><Span>₹ </Span> 5,999</Cost>
-			<ItemDetails>A chunky platform and jagged rubber sole 
-			put an unexpected twist on your everyday Chucks. Details like a canvas build,
-			rubber toe cap and Chuck Taylor ankle patch stay true to the original, 
-			while a molded platform, two-tone outsole and rounded heel give off futuristic vibes.
+			<Brand>{brand}</Brand>
+			<Title>{title}</Title>
+			<Cost><Span>₹ </Span> {price}</Cost>
+			<ItemDetails>
+				{details}
 			</ItemDetails>
 		</>
 	)

@@ -1,25 +1,30 @@
 import React from 'react'
-import { useState } from 'react';
+// import { useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
 import styled from'styled-components';
 
-const ProductImages = ({images}) => {
 
-const [thumbnails, setThumbnails] = useState(-1);
+const ProductImages = () => {
+ 
+	const product = useSelector((state) => state.selectedProduct);
+	const thumbnails = (product.Images);
 
-	const cliclhandler = (mainimg) => {
-		setThumbnails(() => mainimg);
-	} 
 
-	console.log(thumbnails);
+	const dispatch = useDispatch();
+	const handleClick = (img) => {
+		dispatch({type: 'SET_IMAGE', payload: {product, img}})	
+	}
+	
+	dispatch({type: 'SET_IMAGE'});
 	
 	return (
 		<Wrapper>
 			<ImagesWrapper>
 				{
-					images.map((data) => {
-						const { id, mainimg} = data;
+					thumbnails && thumbnails.map((val)=>{
+						const { img, id } = val
 						return (
-							<ProductImage src={mainimg} key={id} onClick={() => cliclhandler(mainimg)}></ProductImage>
+							<ProductImage src={img} key={id} onClick={() => handleClick(img)}></ProductImage>
 						)
 					})
 				}

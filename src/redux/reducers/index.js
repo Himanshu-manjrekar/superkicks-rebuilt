@@ -2,16 +2,20 @@
 import { combineReducers } from "redux"; 
 
 import {
-	// addToCartReducer,
+	addToCartReducer,
 	// genderReducer,
 	productReducer,
-	selectedProductReducer
+	selectedProductReducer,
+	setImagereducer,
+	// selectedImageReducer
 } from './productReducers';
 
 const allReducers = combineReducers({
 	allProducts: productReducer,
 	selectedProduct: selectedProductReducer,
-	// addToCart: addToCartReducer,
+	addToCart: addToCartReducer,
+	setImage: setImagereducer,
+	// selectedImage: selectedImageReducer, 
 })
 
 export default allReducers;

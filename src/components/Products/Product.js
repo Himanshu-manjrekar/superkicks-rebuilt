@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { BiRupee } from "react-icons/bi"
 
-const Product = ({src, title, brand, price}) => {
+const Product = ({src, brand,  title, price}) => {
 	return (
 		<>
 			<CardWrapper>

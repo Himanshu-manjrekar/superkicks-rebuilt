@@ -1,23 +1,32 @@
 import React from 'react'
 import styled from 'styled-components'
 import { CgTrashEmpty } from 'react-icons/cg'
+import { useSelector } from 'react-redux';
+import { Link } from "react-router-dom";
 
-const CartDetails = ({cart}) => {
-	
+const CartDetails = () => {
+	const products = useSelector((state) => state.addToCart.products);
+	const totalPrice = useSelector((state) => state.addToCart.totalPrice);
+	// const totalQuantities = useSelector((state) => state.addToCart.totalQuantities);
+
+	// const { price } = products;
+	// console.log(products.price);
+	// const cartPrice = (products.price);
+	// console.log(totalPrice);
 	
 
 	return (
 		<>
 		<Wrapper>
 		{
-			cart.map((val) => {
-				const {  title, img, price, id } = val;
+			products && products.map((val) => {
+				const {id,title,price,Images} = val;
 				return (
 					<DetailsWrapper key={id}>
-						<Img src={img} alt="" />
+						<Img src={Images[0].img} alt="" />
 						<Name>
 							<Title>{title}</Title>
-							<Price>₹ {price} <DustBin/></Price>	
+						<Price>₹ {price}  <DustBin/></Price>	
 						</Name>
 					</DetailsWrapper>
 				)
@@ -26,9 +35,17 @@ const CartDetails = ({cart}) => {
 		
 		</Wrapper>
 		<CheckoutWrapper>
-				<Subtotal>Subtotal : <Total><Rupee>₹</Rupee> 5000</Total></Subtotal>
-				<ViewCartbtn>View cart </ViewCartbtn>
-				<Checkout> Checkout</Checkout> 
+				<Subtotal>Subtotal : 
+					<Total><Rupee>₹</Rupee> {totalPrice}</Total>
+				</Subtotal>
+					<ViewCartbtn >
+						<Link to="/cart">
+							View cart 
+						</Link>	
+					</ViewCartbtn>
+					<Checkout>
+						<Link to="/checkout">Checkout</Link>
+					</Checkout> 
 		</CheckoutWrapper>
 		</>
 		
@@ -108,7 +125,8 @@ const Subtotal = styled.div`
 	font-weight: 500;
 `
 
-const Checkout = styled.div`
+const Checkout = styled.button`
+	text-decoration:none !important;
 	width: 100%;
 	display: flex;
 	align-items: center;
@@ -120,19 +138,28 @@ const Checkout = styled.div`
 	margin-bottom: 0.5rem;
 	border: 1px solid #353535;
 	cursor: pointer;
+	& a {
+		color: white;
+		text-decoration: none;
+	}
 	&:hover{
 		background: black;
 		transition: all 0.2s ease-in-out;
 	}
 `
 
+
 const ViewCartbtn = styled(Checkout)`
-	background: #fff;
+	background: white;
 	color: #353535;
-	&:hover {
-		background: #fff;
-		color: #353535;
-	} 
+ 	& a {
+		color: black;
+ 		text-decoration: none !important;
+	}
+	&:hover a{
+		color: white;
+		transition: all 0.2s ease-in-out;
+	}
 `
 
 const Total = styled.div`

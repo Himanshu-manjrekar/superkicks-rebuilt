@@ -2,11 +2,14 @@ import React from 'react'
 import styled from 'styled-components';
 import { VscChevronUp, VscChevronDown } from 'react-icons/vsc';
 import { useState } from 'react';
+import { useDispatch,useSelector } from 'react-redux';
 
 const Operations = ({size}) => {
 
-	const [qty, setQty] = useState(1);
+	const dispatch = useDispatch();
+	const product = useSelector((state)=>state.selectedProduct);
 
+	const [qty, setQty] = useState(1);
 	const Increment = () => {
 		setQty(qty + 1);
 		if (qty === 3)
@@ -15,7 +18,6 @@ const Operations = ({size}) => {
 		}
 		else {}
 	}
-	
 	const Decrement = () => {
 		setQty(qty - 1);
 		if (qty === 1)
@@ -24,10 +26,14 @@ const Operations = ({size}) => {
 		}
 		else {}
 	}
-	
+
 	const handleclick = () => {
-		alert("Hello")
+		dispatch({type: 'ADD_TO_CART', payload:{product,qty}})
 	}
+
+	
+	
+	
 	
 	return (
 		<>

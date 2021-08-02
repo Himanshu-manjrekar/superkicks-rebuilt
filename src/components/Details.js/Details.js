@@ -6,40 +6,16 @@ import 'tippy.js/dist/tippy.css';
 import Operations from '../Products/Operations';
 import ProductInfo from './ProductInfo';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 
 const Details = () => {
 	
-	const data = [
-		
-			{
-				id:1,
-				brand:"Asics",
-				title:"VIVIENNE WESTWOOD GEL-KAYANO 27 LTX",
-				img:"https://superkicks.in/wp-content/uploads/2021/06/1201A115.001-1.jpg?x77133",
-				price: "19,999",	
-				gender:"Men",
-				Sizes: [
-					{
-						id: 1,
-						size: 8,
-					},
-					{
-						id: 2,
-						size: 9,
-					},
-					{
-						id: 3,
-						size: 11,
-					},
-				]
-			},
-		
-	]
+	const products = useSelector((state) => state.selectedProduct);
+	const Sizes = (products.Sizes);
+	
 
 	const [size, setSize] = useState(-1);
-
-	
 	const handleclick = (shoesize) => {
 		setSize(() => shoesize);
 	}
@@ -52,19 +28,17 @@ const Details = () => {
 			<ShoeSize>Shoe Size (UK)</ShoeSize>
 			<AvailableSizes>
 				{
-					data.map((val)=> {
+					Sizes && Sizes.map((subval) => {
+						const shoesize = subval.size; 
 						return (
-							val.Sizes.map((subval) => {
-								const shoesize = subval.size; 
-								return(
-									<Tippy content={<ColoredToolTip>{shoesize}</ColoredToolTip>} key={subval.id} >
-										<Box onClick={() => handleclick(shoesize)}>{shoesize}</Box>
-									</Tippy>
-								)
-								
-							})
-						)
-					})
+							<div key={subval.id}>
+								<Tippy content={<ColoredToolTip>{shoesize}</ColoredToolTip>} key={subval.id} >
+									<Box onClick={() => handleclick(shoesize)} key={subval.id}>{shoesize}</Box>
+								</Tippy>
+							</div>
+							
+						)	
+					})	
 				}
 				
 			</AvailableSizes>

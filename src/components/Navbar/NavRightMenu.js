@@ -6,49 +6,30 @@ import { RiCloseLine } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
 import CartDetails from '../cart/CartDetails';
 import IsEmpty from '../cart/IsEmpty';
+import { useSelector } from 'react-redux';
+
+
 const NavRightMenu = () => {
 	const [cartStatus, setCartStatus] = useState(false)
 
-	const Cart = [
-		{
-			id:1,
-			brand:"Asics",
-			title:"VIVIENNE WESTWOOD GEL-KAYANO 27 LTX",
-			img:"https://superkicks.in/wp-content/uploads/2021/06/1201A115.001-1.jpg?x77133",
-			price: "19,999",	
-			gender:"Men",
-				
-			
-		},
-		{
-			id:2,
-			brand:"Nike",
-			title:"AIR FORCE 1 SHADOW W MAGIC EMBER	",
-			img:"https://superkicks.in/wp-content/uploads/2021/06/CI0919-110-1.jpg?x77133",
-			price: "8,995",	
-			gender:"Men",
-		},
-		
-	];
-
-	// console.log(Cart.length);
-
-	const Clength = Cart.length; 
+	const products = useSelector((state) => state.addToCart.products);
+	const totalQuantity = useSelector ((state) => state.addToCart.totalQuantity);
+	const Clength = products.length; 
 	return (
 		<>
 			<RightMenu>
 				<Link to="/myaccount"><BsPerson/></Link>
 				<Link to="#"><BiSearchAlt2/></Link>
-				<Bag onClick={() => setCartStatus(true) }><BsBag/><Badge>3</Badge></Bag>		
+				<Bag onClick={() => setCartStatus(true) }><BsBag/><Badge>{totalQuantity}</Badge></Bag>		
 		</RightMenu>
-		<CustomBag onClick={() => setCartStatus(true) }><BsBag/><CustomBadge>3</CustomBadge></CustomBag>
+		<CustomBag onClick={() => setCartStatus(true) }><BsBag/><CustomBadge>{totalQuantity}</CustomBadge></CustomBag>
 		<ViewCart view={cartStatus}>
 				<CloseWrapper>
 					<ShoppingHeader>Shopping Cart</ShoppingHeader>
 					<CustomClose onClick={() => setCartStatus(false) }/>
 				</CloseWrapper>
 			{
-				Clength>= 1 ? <CartDetails cart={Cart}/> :
+				Clength>= 1 ? <CartDetails/> :
 				<IsEmpty />
 			}
 		</ViewCart>	

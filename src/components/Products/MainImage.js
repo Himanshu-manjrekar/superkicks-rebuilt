@@ -1,17 +1,36 @@
-import React from 'react'
-import styled from 'styled-components';
-import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai'
+import React from 'react';
+// import { useEffect } from 'react';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import styled from 'styled-components';
+import { setImage } from '../../redux/actions/productActions';
 
 const MainImage = () => {
+	const [defimg] = useState();
+	const products = useSelector((state) => state.setImage.img);
+	// console.log(products)
+	const displayimage = useSelector((state) => state.selectedProduct);
+	const Load = (displayimage.Images);
+	
+	const dispatch = useDispatch(() => nullImage());
 
+	const nullImage = () => {
+		dispatch(setImage);
+	}
+	
+	
+	
 
-	// console.log(images[0]);
 	return (
 		<Wrapper>
-			<Image src="https://superkicks.in/wp-content/uploads/2021/06/01-10-850x850.jpg"/>
-			<ArrowWrap><LeftArrow/></ArrowWrap>
-			<ArrowWrap><RightArrow/></ArrowWrap>
+			{
+				products === defimg ? 
+				Load && <Image src={Load[0].img}/>
+				:
+				products && <Image src={products.img}/> 	
+			}
+			
+				
 		</Wrapper>
 	)
 }
@@ -27,21 +46,21 @@ const Wrapper = styled.div`
 	}
 `
 
-const LeftArrow = styled(AiOutlineLeft)`
-	position: absolute;
-	font-size: 1.8rem;
-	top: 50%;
-	left: 0;
-	color: #7e7e7e;
-`	
-const RightArrow = styled(AiOutlineRight)`
-	position: absolute;
-	font-size: 1.8rem;
-	top:50%;
-	right: 0;
-	color: #7e7e7e;
+// const LeftArrow = styled(AiOutlineLeft)`
+// 	position: absolute;
+// 	font-size: 1.8rem;
+// 	top: 50%;
+// 	left: 0;
+// 	color: #7e7e7e;
+// `	
+// const RightArrow = styled(AiOutlineRight)`
+// 	position: absolute;
+// 	font-size: 1.8rem;
+// 	top:50%;
+// 	right: 0;
+// 	color: #7e7e7e;
 	
-`
+// `
 const ArrowWrap = styled.div`
 	
 	cursor: pointer;

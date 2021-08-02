@@ -1,35 +1,35 @@
-import React from 'react'
+import React, {useEffect} from 'react';
+import { useDispatch} from 'react-redux';
 import styled from 'styled-components';
 import BreadCrumb from '../Navbar/BreadCrumb';
 import ProductImages from './ProductImages'; 
 import MainImage from './MainImage';
 import Details from '../Details.js/Details';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
+import { removeSelectedProduct, selectedProduct } from '../../redux/actions/productActions';
+
 
 
 const ProductDetails = () => {
 
-	const Images = [
-		{
-			id: 1,
-			// sideimg: "https://superkicks.in/wp-content/uploads/2021/06/01-10-150x150.jpg",
-			mainimg: "https://superkicks.in/wp-content/uploads/2021/06/01-10-850x850.jpg"
-		},
-		{
-			id: 2,
-			// sideimg: "https://superkicks.in/wp-content/uploads/2021/06/02-10-150x150.jpg",
-			mainimg: "https://superkicks.in/wp-content/uploads/2021/06/02-10.jpg?x88072",
-		},
-		{
-			id: 3,
-			// sideimg: "https://superkicks.in/wp-content/uploads/2021/06/03-10-150x150.jpg",
-			mainimg: "https://superkicks.in/wp-content/uploads/2021/06/03-10-850x850.jpg",
-		},
-		{
-			id: 4,
-			// sideimg: "https://superkicks.in/wp-content/uploads/2021/06/04-9-150x150.jpg",
-			mainimg: "https://superkicks.in/wp-content/uploads/2021/06/04-10-850x850.jpg"
+	const { id } = useParams();
+	const dispatch = useDispatch();
+	// const product = useSelector((state) => state.selectedProduct);
+	const fetchDetails = async () => {
+		const response = await axios.get(`http://localhost:8080/products/${id}`)
+		.catch((err) => {console.log('Err', err)})
+		dispatch(selectedProduct(response.data));
+		// console.log(response.data);
+	}
+
+	useEffect(() => {
+		if(id && id !== "")fetchDetails();
+		return ()=>{
+			dispatch(removeSelectedProduct());
 		}
-	]
+	})
+
 
 	return (
 		<>
@@ -39,7 +39,7 @@ const ProductDetails = () => {
 				</ContainerFluid>
 				<Container>
 					{/* Order: laptop:- 1, tablet:- 2, rest order will be 2 */}
-					<ProductImages images={Images}/> 
+					<ProductImages/> 
 					{/* Order: laptop:- 2, tablet:- 1, rest order will be 1 */}
 					<MainImage/>
 					{/* Order: laptop:- 3, tablet:- 3, rest order will be 3 */}

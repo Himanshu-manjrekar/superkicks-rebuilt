@@ -20,7 +20,7 @@ const ProductListing = () => {
 	}
 	useEffect(() => {
 		fetchArrivals();
-	},[])
+	})
 	return (
 		<ListingWrapper>
 			<HeaderWrapper>
@@ -33,15 +33,16 @@ const ProductListing = () => {
 				<Row>
 					{
 						arrivals.map((val)=> {
+							const Image = val.Images[0].img;
+							const { id, brand, title, price } = val;
 							return (
-								<div className="col-md-4 col-sm-6 col-xs-6 col-lg-4" key={val.id}>
-									<Link style={{textDecoration:"none",color:"black"}} to={`/productdetails`}>
+								<div className="col-md-4 col-sm-6 col-xs-6 col-lg-4" key={id}>
+									<Link style={{textDecoration:"none",color:"black"}} to={`/products/${id}`}>
 									<Product 
-									src={val.img}
-									id={val.id}
-									brand={val.brand}
-									title={val.title}
-									price={val.price}/>
+									src={Image}
+									brand={brand}
+									title={title}
+									price={price}/>
 									</Link>
 									
 								</div>
